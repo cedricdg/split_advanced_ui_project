@@ -23,8 +23,8 @@ public class RemoveOnTouch : MonoBehaviour {
 			Debug.Log("1");
             Destroy(other);
             if(InstantiateOnTriggerEnter != null){
-                Debug.Log("2");
                 var copy = Instantiate(InstantiateOnTriggerEnter);
+                copy.transform.position = other.transform.position;
                 copy.gameObject.SetActive(true);
             }
         }

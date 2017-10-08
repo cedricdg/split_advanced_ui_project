@@ -1,7 +1,9 @@
 fileFormatVersion: 2
-guid: c261d0b9921014c4ea425092ef121aa8
-labels:
-- Robot
-- Hand
+guid: 909354ae03da04efd913352e92f03c71
+timeCreated: 1507482070
+licenseType: Free
 NativeFormatImporter:
+  mainObjectFileID: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
