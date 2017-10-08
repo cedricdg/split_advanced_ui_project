@@ -20,7 +20,6 @@ public class RemoveOnTouch : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Scoreball")) {
-			Debug.Log("1");
             Destroy(other);
             if(InstantiateOnTriggerEnter != null){
                 var copy = Instantiate(InstantiateOnTriggerEnter);
