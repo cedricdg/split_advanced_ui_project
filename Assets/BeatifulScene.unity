@@ -1737,9 +1737,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HandRotationOrigin: 260
   HandRotationThreshhold: 35
-  MaxSpeed: 5
-  MinSpeed: 1
+  MaxSpeed: 3
+  MinSpeed: 0.2
+  yVel: 0
   LastHandVelocityRange: 0
+  BreakForceWrongAngle: 0.08
+  BreakForceValidAngle: 0.02
 --- !u!1001 &219954518
 Prefab:
   m_ObjectHideFlags: 0
@@ -12827,7 +12830,7 @@ MonoBehaviour:
     smooth: 0
     smoothTime: 5
     lockCursor: 1
-  m_UseFovKick: 0
+  m_UseFovKick: 1
   m_FovKick:
     Camera: {fileID: 721676129}
     originalFov: 0
@@ -16383,9 +16386,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HandRotationOrigin: 90
   HandRotationThreshhold: 35
-  MaxSpeed: 5
-  MinSpeed: 1
+  MaxSpeed: 3
+  MinSpeed: 0.2
+  yVel: 0
   LastHandVelocityRange: 0
+  BreakForceWrongAngle: 0.08
+  BreakForceValidAngle: 0.02
 --- !u!1001 &1860254790
 Prefab:
   m_ObjectHideFlags: 0
@@ -17682,7 +17688,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2064849376}
-  m_LocalRotation: {x: -0.5895167, y: -0.09287666, z: 0.73361397, w: 0.32504565}
+  m_LocalRotation: {x: -0.58951664, y: -0.09287665, z: 0.7336139, w: 0.32504562}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

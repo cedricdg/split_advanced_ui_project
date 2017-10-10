@@ -224,7 +224,6 @@
     <Compile Include="Assets\Scripts\ActivateOnDestroy.cs" />
     <Compile Include="Assets\Scripts\DemoScript.cs" />
     <Compile Include="Assets\Scripts\HandsPersonController.cs" />
-    <Compile Include="Assets\Scripts\IInputAxisProvider.cs" />
     <Compile Include="Assets\Scripts\ParticleSystemAutoDestroy.cs" />
     <Compile Include="Assets\Scripts\PrintVelocity.cs" />
     <Compile Include="Assets\Scripts\RemoveOnTouch.cs" />

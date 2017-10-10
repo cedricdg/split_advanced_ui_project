@@ -6,7 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 namespace LeapmotionProject
 {
 
-    public class PrintVelocity : MonoBehaviour, IInputAxisProvider
+    public class PrintVelocity : MonoBehaviour
     {
 
         public float HandRotationOrigin = 90;
@@ -15,43 +15,62 @@ namespace LeapmotionProject
         public float MaxSpeed = 5f;
         public float MinSpeed = 1f;
 
-        public readonly List<Vector3> LastHandVelocities = new List<Vector3>();
+        public float yVel;
         public int LastHandVelocityRange;
+		public float BreakForceWrongAngle = 0.4f;
+		public float BreakForceValidAngle = 0.9f;
 
         public void Update()
         {
             if (IsValidAngle())
 			{
 				var body = this.GetComponent<Rigidbody>();
-                LastHandVelocities.Add(body.velocity);
+                if(yVel < body.velocity.y){
+                    yVel = Mathf.Abs(body.velocity.y);
+				}
+            }
+		}
+
+        public void FixedUpdate()
+		{
+			Debug.Log("yvel: " + yVel);
+
+            if (IsValidAngle())
+            {
+                yVel -= BreakForceValidAngle;
+			}
+			else
+			{
+				yVel -= BreakForceWrongAngle;
+            }
+
+
+			if (yVel < 0f)
+			{
+				yVel = 0f;
+            } else if(yVel > MaxSpeed + MinSpeed){
+                yVel = MaxSpeed + MinSpeed;
             }
         }
 
+        private bool IsValidAngle()
+		{
+			return transform.eulerAngles.z < HandRotationOrigin + HandRotationThreshhold
+						   && transform.eulerAngles.z > HandRotationOrigin - HandRotationThreshhold;
+		}
+
         public float GetVerticalInput()
         {
-            if(LastHandVelocities.Count > 0){
-                var averageVel = new Vector3(
-                    LastHandVelocities.Average(v => Mathf.Abs(v.x)),
-                    LastHandVelocities.Average(v => Mathf.Abs(v.y)),
-                    LastHandVelocities.Average(v => Mathf.Abs(v.z)));
-                Debug.Log("Size: " + LastHandVelocities.Count);
-                LastHandVelocities.Clear();
-                Debug.Log("velz " + averageVel.y);
-                float yAbs = Mathf.Abs(averageVel.y);
+            if(yVel > 0){
+				float yAbs = yVel;
+
                 if (yAbs > MinSpeed)
                 {
                     float result = yAbs / MaxSpeed;
-                    Debug.Log(result + " = " + yAbs + " / " + MaxSpeed);
                     return Mathf.Min(result, 1f) * Mathf.Min(result, 1f);
-				}
-			}
+                }
+            }
             return -1;
-        }
-
-        private bool IsValidAngle()
-        {
-            return transform.eulerAngles.z < HandRotationOrigin + HandRotationThreshhold
-                           && transform.eulerAngles.z > HandRotationOrigin - HandRotationThreshhold;
         }
     }
 
