@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LogPhone : MonoBehaviour {
+    public Vector3 targetRotation;
     public Transform yRotationTarget;
 
-	// Use this for initialization
 	void Start () {
         Debug.Log("Gyro enabled: " + Input.gyro.enabled);
+        Input.gyro.enabled = true;
 	}
 	
-	// Update is called once per frame
 	void Update () {
         Quaternion deviceRotation = Input.gyro.attitude;
         Debug.Log(deviceRotation);
-        Vector3 newEulerRotation = deviceRotation.eulerAngles;
+        targetRotation = deviceRotation.eulerAngles;
         Vector3 oldEulerRotation = transform.rotation.eulerAngles;
-        transform.rotation.eulerAngles.Set(newEulerRotation.x, oldEulerRotation.y, oldEulerRotation.z);
+        transform.rotation.eulerAngles.Set(targetRotation.x, oldEulerRotation.y, oldEulerRotation.z);
         Vector3 oldEulerRotationY = yRotationTarget.transform.rotation.eulerAngles;
-        yRotationTarget.transform.rotation.eulerAngles.Set(oldEulerRotationY.x, newEulerRotation.y, oldEulerRotationY.z);
+        yRotationTarget.transform.rotation.eulerAngles.Set(oldEulerRotationY.x, targetRotation.y, oldEulerRotationY.z);
 	}
 }
