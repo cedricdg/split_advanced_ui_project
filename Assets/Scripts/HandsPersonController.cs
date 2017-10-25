@@ -226,7 +226,6 @@ namespace LeapmotionProject
 			{
 				vertical = GetInputFromLeapmotion();
                 m_IsWalking = false;
-				Debug.Log("Speed in %: " + vertical * 100);
             }
 
             // set the desired speed to be walking or running

@@ -1810,6 +1810,8 @@ GameObject:
   m_Component:
   - component: {fileID: 400218}
   - component: {fileID: 11400010}
+  - component: {fileID: 114689793205649524}
+  - component: {fileID: 114891452297269862}
   m_Layer: 9
   m_Name: CleanRobotRightHand
   m_TagString: Untagged
@@ -6355,3 +6357,56 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100220}
   m_IsPrefabParent: 1
+--- !u!114 &114689793205649524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 182
+    i1: 199
+    i2: 11
+    i3: 47
+    i4: 130
+    i5: 234
+    i6: 132
+    i7: 53
+    i8: 154
+    i9: 226
+    i10: 253
+    i11: 212
+    i12: 229
+    i13: 115
+    i14: 79
+    i15: 228
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114891452297269862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1

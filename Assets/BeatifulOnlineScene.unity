@@ -1519,7 +1519,7 @@ MonoBehaviour:
   m_NetworkPort: 7777
   m_ServerBindToIP: 0
   m_ServerBindAddress: 
-  m_NetworkAddress: localhost
+  m_NetworkAddress: 172.20.10.6
   m_DontDestroyOnLoad: 1
   m_RunInBackground: 1
   m_ScriptCRCCheck: 1
@@ -10547,7 +10547,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.02
+  m_Intensity: 0.15
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -11570,7 +11570,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.15
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -13174,6 +13174,30 @@ Prefab:
       propertyPath: rightPhysicsModel
       value: 
       objectReference: {fileID: 1531977150}
+    - target: {fileID: 1148898879473844, guid: 82e7056c2a5d1482d8927a7e7445c0d2, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114985228771346312, guid: 82e7056c2a5d1482d8927a7e7445c0d2,
+        type: 2}
+      propertyPath: m_LocalPlayerAuthority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114162440211445746, guid: 82e7056c2a5d1482d8927a7e7445c0d2,
+        type: 2}
+      propertyPath: m_SendInterval
+      value: 0.04761905
+      objectReference: {fileID: 0}
+    - target: {fileID: 114162440211445746, guid: 82e7056c2a5d1482d8927a7e7445c0d2,
+        type: 2}
+      propertyPath: m_TransformSyncMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114985228771346312, guid: 82e7056c2a5d1482d8927a7e7445c0d2,
+        type: 2}
+      propertyPath: m_ServerOnly
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82e7056c2a5d1482d8927a7e7445c0d2, type: 2}
   m_IsPrefabParent: 0
@@ -16999,7 +17023,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.02
+  m_Intensity: 0.15
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -17134,7 +17158,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.02
+  m_Intensity: 0.15
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
