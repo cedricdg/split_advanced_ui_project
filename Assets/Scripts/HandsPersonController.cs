@@ -84,6 +84,78 @@ namespace LeapmotionProject
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
+        // Code added by us:
+        private void GetInput(out float speed)
+        {
+            bool waswalking = m_IsWalking;
+
+            // Read input
+            float horizontal = 0f;
+            float vertical = 0f;
+
+            if (Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) > 0.1f
+               || Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")) > 0.1f)
+            {
+                horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+                vertical = CrossPlatformInputManager.GetAxis("Vertical");
+
+
+#if !MOBILE_INPUT
+                // On standalone builds, walk/run speed is modified by a key press.
+                // keep track of whether or not the character is walking or running
+                m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+#endif
+            }
+            else
+            {
+                vertical = GetInputFromLeapmotion();
+                m_IsWalking = false;
+            }
+
+            // set the desired speed to be walking or running
+            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            m_Input = new Vector2(horizontal, vertical);
+
+            // Relative speed
+            speed = speed * vertical;
+
+            // normalize input if it exceeds 1 in combined length:
+            if (m_Input.sqrMagnitude > 1)
+            {
+                m_Input.Normalize();
+            }
+
+            // handle speed change to give an fov kick
+            // only if the player is going to a run, is running and the fovkick is to be used
+            if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0)
+            {
+                StopAllCoroutines();
+                StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
+            }
+        }
+
+        private float GetInputFromLeapmotion()
+        {
+            var hands = GameObject.FindGameObjectsWithTag("Handpalm");
+            var result = 0f;
+            foreach (var hand in hands)
+            {
+                var input = hand.GetComponent<CalculateYVelocity>().GetVerticalInput();
+                if (input > 0f)
+                {
+                    Debug.Log("Register input: " + input);
+                    result += input;
+                }
+            }
+            if (result > 1.0f)
+            {
+                result = 1f;
+            }
+            return result;
+        }
+
+        // Code by us over
+
 
         private void PlayLandingSound()
         {
@@ -202,72 +274,6 @@ namespace LeapmotionProject
         }
 
 
-        private void GetInput(out float speed)
-        {
-            bool waswalking = m_IsWalking;
-			
-            // Read input
-			float horizontal = 0f;
-			float vertical = 0f;
-
-			if (Mathf.Abs(CrossPlatformInputManager.GetAxis("Horizontal")) > 0.1f
-               || Mathf.Abs(CrossPlatformInputManager.GetAxis("Vertical")) > 0.1f){
-				horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-				vertical = CrossPlatformInputManager.GetAxis("Vertical");
-
-
-#if !MOBILE_INPUT
-				// On standalone builds, walk/run speed is modified by a key press.
-				// keep track of whether or not the character is walking or running
-				m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
-#endif
-			}
-			else
-			{
-				vertical = GetInputFromLeapmotion();
-                m_IsWalking = false;
-            }
-
-            // set the desired speed to be walking or running
-            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
-            m_Input = new Vector2(horizontal, vertical);
-
-            // Relative speed
-            speed = speed * vertical;
-
-            // normalize input if it exceeds 1 in combined length:
-            if (m_Input.sqrMagnitude > 1)
-            {
-                m_Input.Normalize();
-            }
-
-            // handle speed change to give an fov kick
-            // only if the player is going to a run, is running and the fovkick is to be used
-            if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0)
-            {
-                StopAllCoroutines();
-                StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
-            }
-        }
-
-        private float GetInputFromLeapmotion()
-        {
-            var hands = GameObject.FindGameObjectsWithTag("Handpalm");
-            var result = 0f;
-            foreach (var hand in hands)
-            {
-                var input = hand.GetComponent<PrintVelocity>().GetVerticalInput();
-                if (input > 0f){
-                    Debug.Log("Register input: " + input);
-                    result += input;
-                }
-			}
-            if (result > 1.0f)
-			{
-                result = 1f;
-			}
-            return result;
-        }
 
         private void RotateView()
         {
