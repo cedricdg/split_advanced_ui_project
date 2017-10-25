@@ -6,7 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 namespace LeapmotionProject
 {
 
-    public class PrintVelocity : MonoBehaviour
+    public class CalculateYVelocity : MonoBehaviour
     {
 
         public float HandRotationOrigin = 90;
@@ -17,8 +17,8 @@ namespace LeapmotionProject
 
         public float yVel;
         public int LastHandVelocityRange;
-		public float BreakForceWrongAngle = 0.4f;
-		public float BreakForceValidAngle = 0.9f;
+        public float BreakForceWrongAngle = 0.08f;
+        public float BreakForceValidAngle = 0.02f;
 
         public void Update()
         {
@@ -61,7 +61,7 @@ namespace LeapmotionProject
 
         public float GetVerticalInput()
         {
-            if(yVel > 0){
+            if (yVel > 0.01f){
 				float yAbs = yVel;
 
                 if (yAbs > MinSpeed)
