@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(NetworkManager))]
-public class StartAsHost : MonoBehaviour {
+public class AutoConnectNetworkManager : MonoBehaviour {
 
     public RuntimePlatform[] AutoStartOnPlatform = { RuntimePlatform.Android, RuntimePlatform.IPhonePlayer};
+    public bool StartAsHost = false;
+
     bool isEditor = false;
     NetworkManager manager;
     // Use this for initialization
@@ -22,7 +24,11 @@ public class StartAsHost : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         if(!isEditor && AutoStartOnPlatform.Contains(Application.platform)){
-            manager.StartHost();
+            if(StartAsHost){
+				manager.StartHost();
+            } else {
+                manager.StartClient();                
+            }
             Debug.Log("Started Host automatically");
         }
 	}

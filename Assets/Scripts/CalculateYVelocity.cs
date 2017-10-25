@@ -33,8 +33,6 @@ namespace LeapmotionProject
 
         public void FixedUpdate()
 		{
-			Debug.Log("yvel: " + yVel);
-
             if (IsValidAngle())
             {
                 yVel -= BreakForceValidAngle;
