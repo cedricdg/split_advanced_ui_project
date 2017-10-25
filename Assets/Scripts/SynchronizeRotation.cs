@@ -44,13 +44,13 @@ public class SynchronizeRotation : NetworkBehaviour {
         syncedRotation = newRot;
     }
 
-    //public override int GetNetworkChannel()
-    //{
-    //    return NetworkChannel;
-    //}
+    public override int GetNetworkChannel()
+    {
+        return NetworkChannel;
+    }
 
-    //public override float GetNetworkSendInterval()
-    //{
-    //    return NetworkSendInterval;
-    //}
+    public override float GetNetworkSendInterval()
+    {
+        return NetworkSendInterval;
+    }
 }

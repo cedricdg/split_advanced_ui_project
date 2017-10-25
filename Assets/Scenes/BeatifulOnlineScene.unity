@@ -1537,7 +1537,7 @@ MonoBehaviour:
   m_OfflineScene: 
   m_OnlineScene: 
   m_SpawnPrefabs: []
-  m_CustomConfig: 0
+  m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:
     m_PacketSize: 1440
@@ -8544,7 +8544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncedRotation: {x: 0, y: 0, z: 0}
-  NetworkChannel: 0
+  NetworkChannel: 1
   NetworkSendInterval: 0.1
   ServerIsReceiver: 0
 --- !u!1 &714766622
@@ -13721,6 +13721,58 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 567a9be2e5b908b45ad7e3f7492dac3d, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1594262700 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1643034649801444, guid: 82e7056c2a5d1482d8927a7e7445c0d2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1557396533}
+--- !u!114 &1594262701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594262700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f656a9981dda54a648ea127d2152b7d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncedPosition: {x: 0, y: 0, z: 0}
+  NetworkChannel: 1
+  NetworkSendInterval: 0.1
+  ServerIsReceiver: 1
+--- !u!114 &1594262702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594262700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 130
+    i1: 231
+    i2: 5
+    i3: 108
+    i4: 42
+    i5: 93
+    i6: 20
+    i7: 130
+    i8: 216
+    i9: 146
+    i10: 122
+    i11: 126
+    i12: 116
+    i13: 69
+    i14: 192
+    i15: 210
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &1601109245
 Prefab:
   m_ObjectHideFlags: 0
