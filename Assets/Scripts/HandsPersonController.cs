@@ -37,7 +37,6 @@ namespace LeapmotionProject
         private CharacterController m_CharacterController;
         private CollisionFlags m_CollisionFlags;
         private bool m_PreviouslyGrounded;
-        private Vector3 m_OriginalCameraPosition;
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
@@ -48,14 +47,10 @@ namespace LeapmotionProject
         {
             m_Camera = Camera.main;
             m_CharacterController = GetComponent<CharacterController>();
-            m_OriginalCameraPosition = m_Camera.transform.localPosition;
-            m_FovKick.Setup(m_Camera);
-            m_HeadBob.Setup(m_Camera, m_StepInterval);
             m_StepCycle = 0f;
             m_NextStep = m_StepCycle / 2f;
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
-            m_MouseLook.Init(transform, m_Camera.transform);
         }
 
 
@@ -69,7 +64,6 @@ namespace LeapmotionProject
 
             if (m_Camera != null)
             {
-                RotateView();
                 // the jump state needs to read here to make sure it is not missed
                 if (!m_Jump)
                 {
@@ -213,7 +207,6 @@ namespace LeapmotionProject
                 m_CollisionFlags = m_CharacterController.Move(m_MoveDir * Time.fixedDeltaTime);
 
                 ProgressStepCycle(speed);
-                UpdateCameraPosition(speed);
 
                 m_MouseLook.UpdateCursorLock();
             }
@@ -260,38 +253,6 @@ namespace LeapmotionProject
             // move picked sound to index 0 so it's not picked next time
             m_FootstepSounds[n] = m_FootstepSounds[0];
             m_FootstepSounds[0] = m_AudioSource.clip;
-        }
-
-
-        private void UpdateCameraPosition(float speed)
-        {
-            Vector3 newCameraPosition;
-            if (!m_UseHeadBob)
-            {
-                return;
-            }
-            if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded)
-            {
-                m_Camera.transform.localPosition =
-                    m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
-                                      (speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
-                newCameraPosition = m_Camera.transform.localPosition;
-                newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
-            }
-            else
-            {
-                newCameraPosition = m_Camera.transform.localPosition;
-                newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
-            }
-            m_Camera.transform.localPosition = newCameraPosition;
-        }
-
-
-
-        private void RotateView()
-        {
-            if (m_MouseLook != null && m_Camera != null)
-                m_MouseLook.LookRotation(transform, m_Camera.transform);
         }
 
 

@@ -8544,7 +8544,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncedRotation: {x: 0, y: 0, z: 0}
-  serverIsReceiver: 0
+  NetworkChannel: 0
+  NetworkSendInterval: 0.1
+  ServerIsReceiver: 0
 --- !u!1 &714766622
 GameObject:
   m_ObjectHideFlags: 0

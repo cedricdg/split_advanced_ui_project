@@ -8,17 +8,21 @@ public class SynchronizeRotation : NetworkBehaviour {
     [SyncVar]
     public Vector3 syncedRotation = new Vector3();
 
-    public bool serverIsReceiver = true;
+    public int NetworkChannel = 0;
+    public float NetworkSendInterval = 0.1f;
+
+    public bool ServerIsReceiver = true;
 
     public void FixedUpdate()
     {
-        bool isReceiver = isServer && serverIsReceiver || !isServer && !serverIsReceiver;
+        bool isReceiver = isServer && ServerIsReceiver || !isServer && !ServerIsReceiver;
         if (isReceiver)
         {
-			transform.rotation = Quaternion.Euler(syncedRotation);
-            Debug.Log("SetRotation: " + syncedRotation);
-            Debug.Log(transform.rotation.Equals(Quaternion.Euler(syncedRotation)));
-            // use Vector3.Lerp(); for smooth transition
+            if(!transform.rotation.eulerAngles.Equals(syncedRotation)){
+                Debug.Log("SetRotation: " + syncedRotation);
+                transform.rotation = Quaternion.Euler(syncedRotation);
+                // use Vector3.Lerp(); for smooth transition
+            }
         }
         else // isSender
         {
@@ -39,4 +43,14 @@ public class SynchronizeRotation : NetworkBehaviour {
     {
         syncedRotation = newRot;
     }
+
+    //public override int GetNetworkChannel()
+    //{
+    //    return NetworkChannel;
+    //}
+
+    //public override float GetNetworkSendInterval()
+    //{
+    //    return NetworkSendInterval;
+    //}
 }
