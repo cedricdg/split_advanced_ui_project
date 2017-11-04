@@ -251,7 +251,8 @@
     <Compile Include="Assets\LeapMotion\Widgets\Scripts\Utils\ExponentialSmoothing.cs" />
     <Compile Include="Assets\LeapMotion\Widgets\Scripts\Utils\FrameRateControls.cs" />
     <Compile Include="Assets\Scripts\CalculateYVelocity.cs" />
-    <Compile Include="Assets\Scripts\HandsPersonController.cs" />
+    <Compile Include="Assets\Scripts\FirstPersonControllerExtensible.cs" />
+    <Compile Include="Assets\Scripts\FirstPersonHandsController.cs" />
     <Compile Include="Assets\Scripts\Network\AutoConnectNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Network\CustomNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Network\SendRotation.cs" />

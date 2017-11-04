@@ -1626,10 +1626,9 @@ MonoBehaviour:
   HandRotationThreshhold: 20
   MaxSpeed: 5
   MinSpeed: 1
-  yVel: 0
-  LastHandVelocityRange: 0
   BreakForceWrongAngle: 0.08
   BreakForceValidAngle: 0.02
+  YVelocity: 0
 --- !u!1001 &219954518
 Prefab:
   m_ObjectHideFlags: 0
@@ -12751,7 +12750,7 @@ Prefab:
         type: 2}
     - target: {fileID: 1643034649801444, guid: 82e7056c2a5d1482d8927a7e7445c0d2, type: 2}
       propertyPath: m_Name
-      value: Character
+      value: FirstPersonController
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114162440211445746, guid: 82e7056c2a5d1482d8927a7e7445c0d2, type: 2}
@@ -12980,7 +12979,7 @@ GameObject:
   m_PrefabParentObject: {fileID: 1643034649801444, guid: 82e7056c2a5d1482d8927a7e7445c0d2,
     type: 2}
   m_PrefabInternal: {fileID: 1557396533}
---- !u!114 &1594262706
+--- !u!114 &1594262707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -12988,12 +12987,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1594262700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 449031ce5f684cd69232b9d95e7f7dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsWalking: 0
   m_WalkSpeed: 5
-  m_RunSpeed: 10
+  m_RunSpeed: 20
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 10
   m_StickToGroundForce: 10
@@ -13007,7 +13006,7 @@ MonoBehaviour:
     smooth: 0
     smoothTime: 5
     lockCursor: 1
-  m_UseFovKick: 1
+  m_UseFovKick: 0
   m_FovKick:
     Camera: {fileID: 0}
     originalFov: 0
@@ -13072,6 +13071,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  TagWithCalculateYVelocity: Handpalm
+  RunningThreshold: 0.5
 --- !u!1001 &1601109245
 Prefab:
   m_ObjectHideFlags: 0
@@ -15394,10 +15395,9 @@ MonoBehaviour:
   HandRotationThreshhold: 20
   MaxSpeed: 5
   MinSpeed: 1
-  yVel: 0
-  LastHandVelocityRange: 0
   BreakForceWrongAngle: 0.08
   BreakForceValidAngle: 0.02
+  YVelocity: 0
 --- !u!1001 &1860254790
 Prefab:
   m_ObjectHideFlags: 0
@@ -16792,7 +16792,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2064849376}
-  m_LocalRotation: {x: -0.5895167, y: -0.09287666, z: 0.73361397, w: 0.32504565}
+  m_LocalRotation: {x: -0.58951664, y: -0.09287665, z: 0.7336139, w: 0.32504562}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
