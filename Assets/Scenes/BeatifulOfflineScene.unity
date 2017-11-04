@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7626c52598d0e482e9ba2e341297af5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HandRotationOrigin: 90
+  HandRotationOrigin: 270
   HandRotationThreshhold: 20
   MaxSpeed: 5
   MinSpeed: 1
@@ -13073,6 +13073,7 @@ MonoBehaviour:
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
   TagWithCalculateYVelocity: Handpalm
   RunningThreshold: 0.5
+  RunningSpeed: 20
 --- !u!1001 &1601109245
 Prefab:
   m_ObjectHideFlags: 0
