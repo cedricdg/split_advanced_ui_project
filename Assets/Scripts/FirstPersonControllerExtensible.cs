@@ -13,7 +13,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     {
         [SerializeField] protected bool m_IsWalking;
         [SerializeField] protected float m_WalkSpeed = 5;
-        [SerializeField] protected float m_RunSpeed = 20;
+        [SerializeField] protected float m_RunSpeed = 10;
         [SerializeField] [Range(0f, 1f)] protected float m_RunstepLenghten = 0.7f;
         [SerializeField] protected float m_JumpSpeed = 20;
         [SerializeField] protected float m_StickToGroundForce = 10;
