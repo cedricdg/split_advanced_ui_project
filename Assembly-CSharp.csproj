@@ -253,11 +253,13 @@
     <Compile Include="Assets\Scripts\CalculateYVelocity.cs" />
     <Compile Include="Assets\Scripts\FirstPersonControllerExtensible.cs" />
     <Compile Include="Assets\Scripts\FirstPersonHandsController.cs" />
+    <Compile Include="Assets\Scripts\LookAt.cs" />
     <Compile Include="Assets\Scripts\Network\AutoConnectNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Network\CustomNetworkManager.cs" />
     <Compile Include="Assets\Scripts\Network\SendRotation.cs" />
     <Compile Include="Assets\Scripts\Network\SynchronizeRotation.cs" />
     <Compile Include="Assets\Scripts\Network\SyncPosition.cs" />
+    <Compile Include="Assets\Scripts\Orbit.cs" />
     <Compile Include="Assets\Scripts\ParticleSystemAutoDestroy.cs" />
     <Compile Include="Assets\Scripts\RemoveOnTouch.cs" />
     <Compile Include="Assets\Scripts\Shoot.cs" />
