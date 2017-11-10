@@ -260,7 +260,7 @@
     <Compile Include="Assets\Scripts\Network\SyncPosition.cs" />
     <Compile Include="Assets\Scripts\ParticleSystemAutoDestroy.cs" />
     <Compile Include="Assets\Scripts\RemoveOnTouch.cs" />
-    <Compile Include="Assets\Shoot.cs" />
+    <Compile Include="Assets\Scripts\Shoot.cs" />
     <None Include="Assets\Plugins\donotdelete.txt" />
     <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-Basic.shader" />
     <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />
