@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LookAtTest : MonoBehaviour
+public class LookAt : MonoBehaviour
 {
 	public Transform Looking;
 	public Transform Target;
