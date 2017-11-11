@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
     public GameObject BulletPrefab;
     public Transform Container;
     public float Forcefullness = 10;
+    public Transform BulletSpawn;
 
     public float PullbackForce
     {
@@ -39,8 +40,8 @@ public class Shoot : MonoBehaviour
     {
         var bullet = Instantiate(
             BulletPrefab,
-            transform.position,
-            transform.rotation,
+            BulletSpawn.position,
+            BulletSpawn.rotation,
             Container
         );
 

@@ -61,7 +61,7 @@ public class ChargeOnHandAngle : MonoBehaviour
     {
         var hands = GameObject.FindGameObjectsWithTag(TagWithCalculateYVelocity);
         SetObjectCharging(hands);
-        Debug.Log(Time.time+" > " + LastShotTime+" + "+CooldownTime);
+
         if (IsCharging && Time.time > LastShotTime + CooldownTime)
         {
             ball.localScale += new Vector3(ScaleGrowth, ScaleGrowth, ScaleGrowth);
