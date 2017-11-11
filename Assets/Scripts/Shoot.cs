@@ -4,9 +4,16 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public GameObject BulletPrefab;
-    public Transform SpawnPoint;
     public Transform Container;
     public float Forcefullness = 10;
+
+    public float PullbackForce
+    {
+        get
+        {
+            return _pullbackStart <= 0.1 ? 0 : (Time.time - _pullbackStart) * Forcefullness;
+        }
+    }
 
     private float _pullbackStart = 0;
 
@@ -16,7 +23,8 @@ public class Shoot : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             StartPullback();
-        } else if (Input.GetButtonUp("Fire1") && Math.Abs(_pullbackStart) > 0.1)
+        }
+        else if (Input.GetButtonUp("Fire1") && Math.Abs(_pullbackStart) > 0.1)
         {
             Fire();
         }
@@ -31,12 +39,12 @@ public class Shoot : MonoBehaviour
     {
         var bullet = Instantiate(
             BulletPrefab,
-            SpawnPoint.position,
-            SpawnPoint.rotation,
+            transform.position,
+            transform.rotation,
             Container
         );
-        var pullbackTime = Time.time - _pullbackStart;
-        var force = pullbackTime * Forcefullness;
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * force;
+
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * PullbackForce;
+        _pullbackStart = 0;
     }
 }

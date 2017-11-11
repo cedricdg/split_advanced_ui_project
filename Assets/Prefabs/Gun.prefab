@@ -150,6 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400012}
   - component: {fileID: 11400000}
+  - component: {fileID: 114881263153966884}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -705,3 +706,18 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100016}
   m_IsPrefabParent: 1
+--- !u!114 &114881263153966884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c10492bc0257340867645dd6a9a27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 1313587462109542, guid: c94067f13996f8c4a89dc6cf0de90112,
+    type: 2}
+  Container: {fileID: 0}
+  Forcefullness: 10

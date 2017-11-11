@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 135696818466674526}
   - component: {fileID: 23913062525670882}
   - component: {fileID: 54637137136499290}
+  - component: {fileID: 114619192222036034}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1313587462109542}
   m_LocalRotation: {x: -0, y: -0.58537006, z: -0, w: 0.8107663}
   m_LocalPosition: {x: 77.26451, y: -5.192871, z: 262.6536}
-  m_LocalScale: {x: 0.31200022, y: 0.31199998, z: 0.31200027}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,6 +100,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &114619192222036034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313587462109542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4436ae25f34465897dde3400e76a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135696818466674526
 SphereCollider:
   m_ObjectHideFlags: 1
