@@ -1,11 +1,7 @@
 using System;
 using System.Linq;
-using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
-using UnityStandardAssets.CrossPlatformInput;
-using UnityStandardAssets.Utility;
-using Random = UnityEngine.Random;
 
 namespace LeapmotionProject
 {
