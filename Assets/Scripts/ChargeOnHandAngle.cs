@@ -8,7 +8,7 @@ public class ChargeOnHandAngle : MonoBehaviour
 {
 
     public string TagWithCalculateYVelocity = "Handpalm";
-    const int NUMBER_OF_HANDS = 1;
+    const int NUMBER_OF_HANDS = 2;
 
     public float ScaleGrowth = 0.01f;
     public float MinScale = 0.1f;
