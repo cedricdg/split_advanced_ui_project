@@ -13,6 +13,8 @@ public class CalculateYVelocity : MonoBehaviour
     
     public float YVelocity;
 
+    public bool IsHandValidAngle;
+
     public void Update()
     {
         if (IsValidAngle())
@@ -22,6 +24,9 @@ public class CalculateYVelocity : MonoBehaviour
             {
                 YVelocity = Mathf.Abs(body.velocity.y);
             }
+            IsHandValidAngle = true;
+        } else {
+            IsHandValidAngle = false;
         }
     }
 
